@@ -87,6 +87,10 @@ img {
 
 }
 
+.date {
+  float: right;
+}
+
 .list {
   margin: 0.5rem 0;
 
@@ -280,6 +284,7 @@ table th {
   margin-bottom: 1rem;
 
 &
+
 .main {
   justify-content: center;
   border-bottom: 1px solid var(--dark-color);

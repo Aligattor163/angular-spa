@@ -10,13 +10,15 @@ import {AppRoutingModule} from "./app-routing.module";
 import { AdminLayoutComponent } from './admin/shared/components/admin-layout/admin-layout.component';
 import { LoginPageComponent } from './admin/login-page/login-page.component';
 import {AdminModule} from "./admin/admin.module";
+import { PostComponent } from './shared/components/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
     HomePageComponent,
-    PostPageComponent
+    PostPageComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
