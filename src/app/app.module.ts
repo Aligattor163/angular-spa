@@ -11,6 +11,8 @@ import { AdminLayoutComponent } from './admin/shared/components/admin-layout/adm
 import { LoginPageComponent } from './admin/login-page/login-page.component';
 import {AdminModule} from "./admin/admin.module";
 import { PostComponent } from './shared/components/post/post.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PostComponent } from './shared/components/post/post.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
