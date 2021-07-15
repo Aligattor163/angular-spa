@@ -26,10 +26,11 @@ a {
   color: var(--primary-color);
   cursor: pointer;
   text-decoration: none;
-&
-:hover {
-  color: #666;
-}
+
+  &
+  :hover {
+    color: #666;
+  }
 
 }
 
@@ -46,6 +47,15 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button {
+  background-color: cornflowerblue;
+  color: white
 }
 
 .text-primary {
@@ -69,21 +79,21 @@ img {
 }
 
 .card {
-  padding: 1rem;
+  padding: 2rem;
   border: #ccc 1px dotted;
   margin: 0.7rem 0;
 
-&
--header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  &
+  -header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-&
--content {
-  margin-bottom: .5rem;
-}
+  &
+  -content {
+    margin-bottom: .5rem;
+  }
 
 }
 
@@ -94,9 +104,9 @@ img {
 .list {
   margin: 0.5rem 0;
 
-li {
-  padding-bottom: 0.3rem;
-}
+  li {
+    padding-bottom: 0.3rem;
+  }
 
 }
 
@@ -112,12 +122,12 @@ li {
   transition: opacity 0.2s ease-in;
   outline: none;
 
-&
-:disabled {
-  cursor: not-allowed;
-  background: var(--light-color);
-  color: #111;
-}
+  &
+  :disabled {
+    cursor: not-allowed;
+    background: var(--light-color);
+    color: #111;
+  }
 
 }
 
@@ -224,19 +234,19 @@ li {
   color: #888;
   margin-bottom: .8rem;
 
-&
-.invalid {
-  color: var(--primary-color);
+  &
+  .invalid {
+    color: var(--primary-color);
 
-input {
-  border-color: var(--primary-color);
-}
+    input {
+      border-color: var(--primary-color);
+    }
 
-}
+  }
 
-.validation {
-  color: var(--primary-color);
-}
+  .validation {
+    color: var(--primary-color);
+  }
 
 }
 
@@ -283,35 +293,40 @@ table th {
   opacity: 0.9;
   margin-bottom: 1rem;
 
-&
+  &
+  .main {
+    justify-content: center;
+    border-bottom: 1px solid var(--dark-color);
+  }
 
-.main {
-  justify-content: center;
-  border-bottom: 1px solid var(--dark-color);
+  ul {
+    display: flex;
+  }
+
+  li.active a {
+    color: var(--dark-color);
+    font-weight: bold;
+    cursor: default;
+  }
+
+  a {
+    color: #fff;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+
+    &
+    :hover {
+      color: var(--light-color);
+    }
+
+  }
 }
 
-ul {
-  display: flex;
+html, body {
+  height: 100%;
 }
 
-li.active a {
-  color: var(--dark-color);
-  font-weight: bold;
-  cursor: default;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
-a {
-  color: #fff;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
-
-&
-:hover {
-  color: var(--light-color);
-}
-
-}
-}
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

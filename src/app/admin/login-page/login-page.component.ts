@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../shared/interfaces";
 import {AuthService} from "../../shared/services/auth.service";
 import {Router} from "@angular/router";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-login-page',
@@ -12,6 +13,7 @@ import {Router} from "@angular/router";
 export class LoginPageComponent implements OnInit {
 
   form: FormGroup
+  loginButton: MatButton
 
   constructor(private auth: AuthService,
               private router: Router

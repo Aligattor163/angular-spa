@@ -10,6 +10,8 @@ import {CreatePageComponent} from './create-page/create-page.component';
 import {EditPageComponent} from './edit-page/edit-page.component';
 import {AuthService} from "../shared/services/auth.service";
 import {SharedModule} from "../shared/shared.module";
+import {MatButtonModule} from "@angular/material/button";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 @NgModule({

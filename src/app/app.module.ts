@@ -7,12 +7,12 @@ import {MainLayoutComponent} from './shared/components/main-layout/main-layout.c
 import {PostPageComponent} from './post-page/post-page.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { AdminLayoutComponent } from './admin/shared/components/admin-layout/admin-layout.component';
-import { LoginPageComponent } from './admin/login-page/login-page.component';
 import {AdminModule} from "./admin/admin.module";
-import { PostComponent } from './shared/components/post/post.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {PostComponent} from './shared/components/post/post.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared/shared.module";
+import {MatButtonModule} from "@angular/material/button";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
