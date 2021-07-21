@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../shared/interfaces";
 import {AuthService} from "../../shared/services/auth.service";
 import {Router} from "@angular/router";
-import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-login-page',
@@ -13,9 +12,9 @@ import {MatButton} from "@angular/material/button";
 export class LoginPageComponent implements OnInit {
 
   form: FormGroup
-  loginButton: MatButton
+  submitted: boolean = false
 
-  constructor(private auth: AuthService,
+  constructor(public auth: AuthService,
               private router: Router
   ) {
     this.form = new FormGroup({
@@ -32,14 +31,15 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    if (localStorage.getItem('reqres-token') !== null) {
+    }
   }
 
   submit() {
-    console.log(this.form)
     if (this.form.invalid) {
       return
     }
+
 
     const user: User = {
       email: this.form.value.email,

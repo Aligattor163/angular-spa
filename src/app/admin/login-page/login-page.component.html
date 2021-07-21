@@ -29,6 +29,8 @@
     </div>
   </div>
 
-  <button mat-raised-button color="warn" type="submit" [disabled]="form.invalid">Login
+  <mat-card class="error-card" *ngIf="auth.error$ | async as error">{{error}}</mat-card>
+
+  <button mat-raised-button color="warn" type="submit" [disabled]="form.invalid || !!auth.isAuthenticated()">Login
   </button>
 </form>

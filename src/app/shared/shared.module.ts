@@ -3,6 +3,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
       HttpClientModule,
       MatButtonModule,
       MatButtonToggleModule,
-      MatToolbarModule
+      MatToolbarModule,
+      MatCardModule
     ]
   }
 )
