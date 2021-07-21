@@ -1,4 +1,6 @@
 <br>
+<mat-card class="message-card" *ngIf="message">{{message}}</mat-card>
+
 <form class="card" [formGroup]="form" (ngSubmit)="submit()">
   <h2>Log in as administrator</h2>
   <div class="form-control"
