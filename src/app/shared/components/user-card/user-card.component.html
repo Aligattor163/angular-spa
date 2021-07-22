@@ -1,0 +1,20 @@
+<!--<div class="card">-->
+<!--  <div class="card-header">-->
+<!--    <h2>User Name</h2>-->
+<!--    <small class="date">registration_date</small>-->
+<!--  </div>-->
+
+<!--  <button [routerLink]="['/user-card', 123]" class="btn btn-dark">-->
+<!--    Open-->
+<!--  </button>-->
+<!--</div>-->
+
+<mat-card class="user-card">
+  <mat-card-header>
+    <img mat-card-avatar class="user-card-header-image" src="https://reqres.in/img/faces/7-image.jpg">
+    <mat-card-title>User_Name</mat-card-title>
+    <mat-card-subtitle>User_Email</mat-card-subtitle>
+  </mat-card-header>
+  <button mat-raised-button color="primary" [routerLink]="['/user-card', 123]">Open</button>
+</mat-card>
+

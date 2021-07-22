@@ -1,0 +1,11 @@
+.user-card {
+  margin: 1rem;
+  max-height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-card-header-image {
+  background-size: cover;
+}

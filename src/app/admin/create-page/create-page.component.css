@@ -1,0 +1,11 @@
+.create-user-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.create-user-form-control {
+  flex: 1 1 auto;
+  margin: 0 5px;
+}

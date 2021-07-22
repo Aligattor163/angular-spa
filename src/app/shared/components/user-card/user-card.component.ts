@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  templateUrl: './user-card.component.html',
+  styleUrls: ['./user-card.component.css']
 })
-export class PostComponent implements OnInit {
+export class UserCardComponent implements OnInit {
 
   constructor() { }
 

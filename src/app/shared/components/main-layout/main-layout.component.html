@@ -1,5 +1,7 @@
 <mat-toolbar>
-  <span>Angular Spa</span>
+  <button mat-button class="brand-button" routerLink="/">Angular SPA</button>
+  <button mat-raised-button color="warn" routerLink="/admin" *ngIf="!auth.isAuthenticated()">Login</button>
+  <button mat-raised-button color="warn" routerLink="/admin" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Logout</button>
 </mat-toolbar>
 <div class="container">
   <router-outlet></router-outlet>
