@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button routerLink="/">
+  <button mat-icon-button routerLink="/" class="toolbar-brand-button">
     <h1>Angular admin</h1>
   </button>
   <span class="toolbar-spacer"></span>
 
-  <mat-button-toggle-group name="toolbarButtons" aria-label="Toolbar Buttons" style="font-size: 15px;" *ngIf="auth.isAuthenticated()">
-    <mat-button-toggle class="toolbar-button" [routerLink]="['/admin', 'dashboard']">Dashboard</mat-button-toggle>
-    <mat-button-toggle class="toolbar-button" [routerLink]="['/admin', 'create']">Create</mat-button-toggle>
-    <mat-button-toggle class="toolbar-button" (click)="logout($event)">Logout</mat-button-toggle>
+  <mat-button-toggle-group class="toolbar-button" name="toolbarButtons" aria-label="Toolbar Buttons" *ngIf="auth.isAuthenticated()">
+    <mat-button-toggle [routerLink]="['/admin', 'dashboard']">Dashboard</mat-button-toggle>
+    <mat-button-toggle [routerLink]="['/admin', 'create']">Create</mat-button-toggle>
+    <mat-button-toggle (click)="logout($event)" style="color: white; background-color: #f44336;">Logout</mat-button-toggle>
   </mat-button-toggle-group>
 
 </mat-toolbar>

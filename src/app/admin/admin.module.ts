@@ -6,7 +6,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AdminLayoutComponent} from "./shared/components/admin-layout/admin-layout.component";
 import {LoginPageComponent} from "./login-page/login-page.component";
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
-import {CreatePageComponent} from './create-page/create-page.component';
+import {RegistrationPageComponent} from '../registration-page/registration-page.component';
 import {EditPageComponent} from './edit-page/edit-page.component';
 import {AuthService} from "./shared/services/auth.service";
 import {SharedModule} from "../shared/shared.module";
@@ -18,7 +18,7 @@ import {AuthGuard} from "./shared/services/auth.guard";
     AdminLayoutComponent,
     LoginPageComponent,
     DashboardPageComponent,
-    CreatePageComponent,
+    RegistrationPageComponent,
     EditPageComponent
   ],
   imports: [
@@ -32,7 +32,6 @@ import {AuthGuard} from "./shared/services/auth.guard";
           {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
           {path: 'login', component: LoginPageComponent},
           {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
-          {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
           {path: 'user-card/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]}
         ]
       }

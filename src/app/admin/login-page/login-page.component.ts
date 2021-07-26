@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../shared/interfaces";
 import {AuthService} from "../shared/services/auth.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {FormsErrorStateMatcher} from "../../shared/formsErrorStateMatcher";
 
 @Component({
   selector: 'app-login-page',
@@ -11,14 +12,16 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 })
 export class LoginPageComponent implements OnInit {
 
-  form: FormGroup
+  loginForm: FormGroup
+  hide: Boolean = true
+  matcher = new FormsErrorStateMatcher()
   message: string
 
   constructor(public auth: AuthService,
               private router: Router,
               private route: ActivatedRoute
   ) {
-    this.form = new FormGroup({
+    this.loginForm = new FormGroup({
         email: new FormControl(null, [
           Validators.email,
           Validators.required
@@ -40,18 +43,17 @@ export class LoginPageComponent implements OnInit {
   }
 
   submit() {
-    if (this.form.invalid) {
+    if (this.loginForm.invalid) {
       return
     }
 
-
     const user: User = {
-      email: this.form.value.email,
-      password: this.form.value.password
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
     }
 
     this.auth.login(user).subscribe(() => {
-      this.form.reset()
+      this.loginForm.reset()
       this.router.navigate(['/admin', 'dashboard'])
     })
   }
