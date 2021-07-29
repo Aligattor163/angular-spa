@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../shared/interfaces";
+import {UserCredentials} from "../../shared/interfaces";
 import {AuthService} from "../shared/services/auth.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormsErrorStateMatcher} from "../../shared/formsErrorStateMatcher";
@@ -47,7 +47,7 @@ export class LoginPageComponent implements OnInit {
       return
     }
 
-    const user: User = {
+    const user: UserCredentials = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password
     }

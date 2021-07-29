@@ -9,6 +9,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
     imports: [
@@ -21,7 +23,9 @@ import {MatIconModule} from "@angular/material/icon";
       MatSelectModule,
       MatOptionModule,
       MatInputModule,
-      MatIconModule
+      MatIconModule,
+      MatPaginatorModule,
+      ScrollingModule
     ],
     exports: [
       HttpClientModule,
@@ -33,7 +37,9 @@ import {MatIconModule} from "@angular/material/icon";
       MatSelectModule,
       MatOptionModule,
       MatInputModule,
-      MatIconModule
+      MatIconModule,
+      MatPaginatorModule,
+      ScrollingModule
     ]
   }
 )

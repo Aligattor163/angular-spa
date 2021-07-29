@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {ReqAuthResponse, User} from "../../../shared/interfaces";
+import {ReqAuthResponse, UserCredentials} from "../../../shared/interfaces";
 import {Observable, Subject, throwError} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
 
@@ -28,7 +28,7 @@ export class AuthService {
     return localStorage.getItem('reqres-token')
   }
 
-  login(user: User): Observable<any> {
+  login(user: UserCredentials): Observable<any> {
     return this.http.post('https://reqres.in/api/login', user)
       .pipe(
         // @ts-ignore

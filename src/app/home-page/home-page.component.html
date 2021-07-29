@@ -1,7 +1,17 @@
-<div class="posts">
-  <app-post></app-post>
-  <app-post></app-post>
-  <app-post></app-post>
-  <app-post></app-post>
-  <app-post></app-post>
+<div class="users-list" *ngIf="usersList.length; else nothingToDisplay">
+  <app-user-card *ngFor="let user of usersList" [user]="user"></app-user-card>
+
+  <mat-paginator [length]=length
+                 [pageSize]=pageSize
+                 [pageSizeOptions]="[5, 10, 25, 100]"
+                 [hidePageSize]="true"
+                 (page)="pageEvent = $event"
+                 (click)="listUsers()">
+  </mat-paginator>
 </div>
+
+<ng-template #nothingToDisplay>
+  <div class="users-list" *ngIf="usersList.length == 0">
+    <span>Nothing to display</span>
+  </div>
+</ng-template>
