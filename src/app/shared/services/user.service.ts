@@ -28,4 +28,12 @@ export class UserService {
         }
       ))
   }
+
+  getUserByEmail(email: string): Observable<User> {
+    return this.http.get<UsersReqresResponse>('https://reqres.in/api/users?per_page=12')
+      .pipe(map((response: UsersReqresResponse) => {
+          return response.data.filter(user => user.email === email)[0]
+        }
+      ))
+  }
 }

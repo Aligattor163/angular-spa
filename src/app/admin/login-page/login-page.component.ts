@@ -54,6 +54,7 @@ export class LoginPageComponent implements OnInit {
 
     this.auth.login(user).subscribe(() => {
       this.loginForm.reset()
+      this.auth.setCurrentUser(user.email.toString())
       this.router.navigate(['/admin'])
     })
   }

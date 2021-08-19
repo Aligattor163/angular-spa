@@ -13,7 +13,6 @@ import {AuthService} from "../admin/shared/services/auth.service";
 export class UserPageComponent implements OnInit {
 
   user: User
-  usertxt: string
 
   constructor(private route: ActivatedRoute,
               private userService: UserService,
@@ -29,7 +28,6 @@ export class UserPageComponent implements OnInit {
     ).subscribe((response) => {
       this.user = response.data
       this.user.description = response.support.text
-      this.usertxt = JSON.stringify(this.user)
     })
   }
 

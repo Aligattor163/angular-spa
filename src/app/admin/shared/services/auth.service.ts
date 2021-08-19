@@ -1,15 +1,17 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {ReqAuthResponse, UserCredentials} from "../../../shared/interfaces";
+import {ReqAuthResponse, User, UserCredentials} from "../../../shared/interfaces";
 import {Observable, Subject, throwError} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
+import {UserService} from "../../../shared/services/user.service";
 
 @Injectable()
 export class AuthService {
 
   public error$: Subject<string> = new Subject<string>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private userService: UserService) {
   }
 
   get token(): string | null {
@@ -32,7 +34,9 @@ export class AuthService {
     return this.http.post('https://reqres.in/api/login', user)
       .pipe(
         // @ts-ignore
-        tap(this.setToken),
+        tap(
+          this.setToken
+        ),
         catchError(this.handleError.bind(this))
       )
   }
@@ -45,7 +49,7 @@ export class AuthService {
     return !!this.token
   }
 
-  private handleError(error: HttpErrorResponse): Observable<any>{
+  private handleError(error: HttpErrorResponse): Observable<any> {
     const message = error.error.error
     this.error$.next(message)
     return throwError(error)
@@ -60,5 +64,22 @@ export class AuthService {
     } else {
       localStorage.clear()
     }
+  }
+
+  public setCurrentUser(email: string) {
+    this.userService.getUserByEmail(email).subscribe((user: User) => {
+      if (user.first_name) {
+        localStorage.setItem('user_name', user.first_name)
+        localStorage.setItem('user_id', user.id.toString())
+      }
+    })
+  }
+
+  public getUserName() {
+    return localStorage.getItem('user_name')
+  }
+
+  public getUserID() {
+    return localStorage.getItem('user_id')
   }
 }
