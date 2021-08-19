@@ -3,7 +3,6 @@
 
   <mat-paginator [length]=length
                  [pageSize]=pageSize
-                 [pageSizeOptions]="[5, 10, 25, 100]"
                  [hidePageSize]="true"
                  (page)="pageEvent = $event"
                  (click)="listUsers()">

@@ -4,17 +4,20 @@ import {MainLayoutComponent} from "./shared/components/main-layout/main-layout.c
 import {HomePageComponent} from "./home-page/home-page.component";
 import {UserPageComponent} from "./user-page/user-page.component";
 import {RegistrationPageComponent} from "./registration-page/registration-page.component";
+import {LoginPageComponent} from "./admin/login-page/login-page.component";
+import {AuthGuard} from "./admin/shared/services/auth.guard";
 
 const routes: Routes = [
   {
     path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: '/', pathMatch: 'full'},
       {path: '', component: HomePageComponent},
+      {path: 'login', component: LoginPageComponent},
       {path: 'registration', component: RegistrationPageComponent},
-      {path: 'user-card/:id', component: UserPageComponent}
+      {path: 'user-page/:id', component: UserPageComponent}
     ]
   },
-  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule)}
+  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule), canActivate: [AuthGuard]}
 ];
 
 @NgModule({

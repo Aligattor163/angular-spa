@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {User} from "../shared/interfaces";
+import {User, UsersReqresResponse} from "../shared/interfaces";
 import {HttpClient} from "@angular/common/http";
 import {PageEvent} from "@angular/material/paginator";
 import {UserService} from "../shared/services/user.service";
@@ -39,7 +39,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
       this.pageNum = this.pageEvent.pageIndex + 1
     }
 
-    this.uSub = this.userService.getUsers(this.pageNum).subscribe((response) => {
+    this.uSub = this.userService.getUsers(this.pageNum).subscribe((response: UsersReqresResponse) => {
       this.usersList = response.data
       this.length = response.total
       this.pageSize = response.per_page

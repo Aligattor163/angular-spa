@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
+import {User} from "../shared/interfaces";
+import {switchMap} from "rxjs/operators";
+import {UserService} from "../shared/services/user.service";
+import {AuthService} from "../admin/shared/services/auth.service";
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +12,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPageComponent implements OnInit {
 
-  constructor() { }
+  user: User
+  usertxt: string
+
+  constructor(private route: ActivatedRoute,
+              private userService: UserService,
+              public auth: AuthService) {
+  }
 
   ngOnInit(): void {
+    this.route.params.pipe(
+      switchMap((params: Params) => {
+          return this.userService.getUserByID(params['id'])
+        }
+      )
+    ).subscribe((response) => {
+      this.user = response.data
+      this.user.description = response.support.text
+      this.usertxt = JSON.stringify(this.user)
+    })
   }
+
 
 }

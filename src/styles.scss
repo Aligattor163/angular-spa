@@ -49,4 +49,20 @@ body {
   flex: 1 1 auto;
 }
 
+.user-card {
+  margin: 1rem;
+  display: block;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-card-fixed {
+  display: flex !important;
+  max-height: 2rem;
+}
+
+.user-card-header-image {
+  background-size: cover;
+}
+
 

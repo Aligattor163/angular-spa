@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button class="toolbar-brand-button" routerLink="/dashboard" *ngIf="auth.isAuthenticated()">
+  <button mat-icon-button class="toolbar-brand-button" routerLink="/admin" *ngIf="auth.isAuthenticated()">
     <h1>Angular SPA<mat-icon style="font-size: 1rem">shield</mat-icon></h1>
   </button>
 
@@ -11,8 +11,6 @@
 
   <mat-button-toggle-group class="toolbar-button" name="toolbarButtons" aria-label="Toolbar Buttons"
                            *ngIf="auth.isAuthenticated()">
-    <mat-button-toggle [routerLink]="['/admin', 'dashboard']">Dashboard</mat-button-toggle>
-    <mat-button-toggle [routerLink]="['/admin', 'create']">Create</mat-button-toggle>
     <mat-button-toggle (click)="logout($event)" style="color: white; background-color: #f44336;">Logout
     </mat-button-toggle>
   </mat-button-toggle-group>

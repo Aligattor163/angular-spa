@@ -12,7 +12,8 @@ export interface User {
   email: string,
   first_name: string,
   last_name: string,
-  avatar: string
+  avatar: string,
+  description?: string
 }
 
 export interface UsersReqresResponse {
@@ -21,4 +22,12 @@ export interface UsersReqresResponse {
   total: number,
   total_pages: number,
   data: User[]
+}
+
+export interface SingleUserReqresResponse {
+  data: User,
+  support: {
+    url: string,
+    text: string
+  }
 }
