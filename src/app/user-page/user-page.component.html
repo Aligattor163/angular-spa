@@ -1,21 +1,68 @@
-<div class="user-page">
-  <mat-card class="user-card">
-    <mat-card-header>
-      <img mat-card-avatar class="user-card-header-image" src="{{user.avatar}}">
-      <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
-      <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        {{user.description}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="accent" *ngIf="auth.isAuthenticated()">Edit</button>
-      <button mat-raised-button color="primary" [routerLink]="['']" *ngIf="!auth.isAuthenticated()">Go back</button>
-      <button mat-raised-button color="primary" [routerLink]="['/admin']" *ngIf="auth.isAuthenticated()">Go back</button>
-    </mat-card-actions>
+<div class="user-page" *ngIf="user else loading">
+  <br>
+  <div *ngIf="!isEdit">
+    <mat-card class="user-card">
+      <mat-card-header>
+        <img mat-card-avatar class="user-card-header-image" src="{{user.avatar}}">
+        <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
+        <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{user.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="accent" *ngIf="auth.isAuthenticated()" (click)="isEdit=!isEdit">Edit</button>
+        <button mat-raised-button color="primary" [routerLink]="['']" *ngIf="!auth.isAuthenticated()">Go back</button>
+        <button mat-raised-button color="primary" [routerLink]="['/admin']" *ngIf="auth.isAuthenticated()">Go back
+        </button>
+      </mat-card-actions>
 
-  </mat-card>
+    </mat-card>
+  </div>
 </div>
 
+<div *ngIf="isEdit">
+
+
+
+  <form class="form" [formGroup]="userForm">
+    <img mat-card-avatar class="user-card-header-image center" src="{{user.avatar}}"
+         (click)="singleFile.click()">
+    <input #singleFile type="file" hidden [fileUploadInputFor]="fileUploadQueue"/>
+
+    <mat-file-upload-queue #fileUploadQueue
+                           [fileAlias]="'file'"
+                           [httpUrl]="avatarHttpUrl">
+
+      <mat-file-upload [file]="file" [id]="i"
+                       *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
+    </mat-file-upload-queue>
+
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" type="submit" (click)="submit()">Apply</button>
+  </form>
+</div>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>

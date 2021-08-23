@@ -11,15 +11,13 @@ import {SharedModule} from "../shared/shared.module";
 import {AuthGuard} from "./shared/services/auth.guard";
 import {UserPageComponent} from "../user-page/user-page.component";
 import {HomePageComponent} from "../home-page/home-page.component";
-import {EditPageComponent} from "./edit-page/edit-page.component";
 
 
 @NgModule({
   declarations: [
     AdminLayoutComponent,
     LoginPageComponent,
-    RegistrationPageComponent,
-    EditPageComponent
+    RegistrationPageComponent
   ],
   imports: [
     FormsModule,
@@ -30,6 +28,7 @@ import {EditPageComponent} from "./edit-page/edit-page.component";
       {
         path: '', component: AdminLayoutComponent, children: [
           {path: '', component: HomePageComponent},
+          {path: 'login', component: LoginPageComponent},
           {path: 'register', component: RegistrationPageComponent},
           {path: 'user-page/:id', component: UserPageComponent}
         ]

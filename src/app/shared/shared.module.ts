@@ -11,6 +11,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import {MatFileUploadModule} from "angular-material-fileupload";
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
       MatInputModule,
       MatIconModule,
       MatPaginatorModule,
+      MatFileUploadModule,
       ScrollingModule
     ],
     exports: [
@@ -39,6 +41,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
       MatInputModule,
       MatIconModule,
       MatPaginatorModule,
+      MatFileUploadModule,
       ScrollingModule
     ]
   }
